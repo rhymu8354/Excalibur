@@ -12,7 +12,7 @@ Right now, the way you use this solution is to build it and run the unit tests f
 ## Libraries hosted in this solution
 
 * Uri -- Implementation of [RFC 3986](https://tools.ietf.org/html/rfc3986),
-"Uniform Resource Identifier (URI): Generic Syntax"
+  "Uniform Resource Identifier (URI): Generic Syntax"
 
 ## Supported platforms / recommended toolchains
 
@@ -42,7 +42,7 @@ cd build
 cmake -G "Visual Studio 15 2017" -A "x64" ..
 ```
 
-### Compiling, linking, etc.
+### Compiling, linking, et cetera
 
 Either use [CMake](https://cmake.org/) or your toolchain's IDE to build.
 For [CMake](https://cmake.org/):
