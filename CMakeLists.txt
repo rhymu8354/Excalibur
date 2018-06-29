@@ -41,11 +41,13 @@ if(ParentDirectory STREQUAL "")
     endif(MSVC AND RUNTIME_STATIC_LINKAGE)
 
     # Keep Google Test's linkage of the runtime in sync with our own.
-    if (RUNTIME_STATIC_LINKAGE)
-        set(gtest_force_shared_crt OFF CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib." FORCE)
-    else(RUNTIME_STATIC_LINKAGE)
-        set(gtest_force_shared_crt ON CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib." FORCE)
-    endif(RUNTIME_STATIC_LINKAGE)
+    if(MSVC)
+        if(RUNTIME_STATIC_LINKAGE)
+            set(gtest_force_shared_crt OFF CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib." FORCE)
+        else(RUNTIME_STATIC_LINKAGE)
+            set(gtest_force_shared_crt ON CACHE BOOL "Use shared (DLL) run-time lib even when Google Test is built as static lib." FORCE)
+        endif(RUNTIME_STATIC_LINKAGE)
+    endif(MSVC)
 
     # Organize applications, libraries, etc. in folders in the IDE.
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
