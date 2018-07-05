@@ -77,6 +77,7 @@ if(ParentDirectory STREQUAL "")
     )
 
     # All other libraries can be pulled in without further configuration.
+    add_subdirectory(InternetMessage)
     add_subdirectory(Uri)
 endif(ParentDirectory STREQUAL "")
 

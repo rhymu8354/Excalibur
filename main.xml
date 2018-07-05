@@ -2,6 +2,11 @@
 <workspace>
     <repositories>
         <repository
+            path="InternetMessage"
+            url="git@bitbucket.org:digitalstirling/InternetMessage.git"
+            branch="master"
+            />
+        <repository
             path="Uri"
             url="git@bitbucket.org:digitalstirling/uri.git"
             branch="master"
