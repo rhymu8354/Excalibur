@@ -12,6 +12,11 @@
             branch="master"
             />
         <repository
+            path="Utf8"
+            url="git@bitbucket.org:digitalstirling/Utf8.git"
+            branch="master"
+            />
+        <repository
             path="googletest"
             url="https://github.com/google/googletest.git"
             branch="master"

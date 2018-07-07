@@ -79,6 +79,7 @@ if(ParentDirectory STREQUAL "")
     # All other libraries can be pulled in without further configuration.
     add_subdirectory(MessageHeaders)
     add_subdirectory(Uri)
+    add_subdirectory(Utf8)
 endif(ParentDirectory STREQUAL "")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
