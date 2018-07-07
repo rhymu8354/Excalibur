@@ -2,8 +2,8 @@
 <workspace>
     <repositories>
         <repository
-            path="InternetMessage"
-            url="git@bitbucket.org:digitalstirling/InternetMessage.git"
+            path="MessageHeaders"
+            url="git@bitbucket.org:digitalstirling/MessageHeaders.git"
             branch="master"
             />
         <repository
