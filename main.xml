@@ -27,6 +27,11 @@
             branch="master"
             />
         <repository
+            path="WebServer"
+            url="git@bitbucket.org:digitalstirling/WebServer.git"
+            branch="master"
+            />
+        <repository
             path="googletest"
             url="https://github.com/google/googletest.git"
             branch="master"
