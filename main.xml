@@ -2,6 +2,11 @@
 <workspace>
     <repositories>
         <repository
+            path="Http"
+            url="git@bitbucket.org:digitalstirling/Http.git"
+            branch="master"
+            />
+        <repository
             path="MessageHeaders"
             url="git@bitbucket.org:digitalstirling/MessageHeaders.git"
             branch="master"
