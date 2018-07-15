@@ -7,6 +7,11 @@
             branch="master"
             />
         <repository
+            path="HttpNetworkTransport"
+            url="git@bitbucket.org:digitalstirling/HttpNetworkTransport.git"
+            branch="master"
+            />
+        <repository
             path="MessageHeaders"
             url="git@bitbucket.org:digitalstirling/MessageHeaders.git"
             branch="master"

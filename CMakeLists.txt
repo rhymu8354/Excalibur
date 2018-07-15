@@ -78,6 +78,7 @@ if(ParentDirectory STREQUAL "")
 
     # All other libraries can be pulled in without further configuration.
     add_subdirectory(Http)
+    add_subdirectory(HttpNetworkTransport)
     add_subdirectory(MessageHeaders)
     add_subdirectory(SystemAbstractions)
     add_subdirectory(Uri)
