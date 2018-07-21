@@ -3,37 +3,37 @@
     <repositories>
         <repository
             path="Http"
-            url="git@bitbucket.org:digitalstirling/Http.git"
+            url="git@github.com:rhymu8354/Http.git"
             branch="master"
             />
         <repository
             path="HttpNetworkTransport"
-            url="git@bitbucket.org:digitalstirling/HttpNetworkTransport.git"
+            url="git@github.com:rhymu8354/HttpNetworkTransport.git"
             branch="master"
             />
         <repository
             path="MessageHeaders"
-            url="git@bitbucket.org:digitalstirling/MessageHeaders.git"
+            url="git@github.com:rhymu8354/MessageHeaders.git"
             branch="master"
             />
         <repository
             path="SystemAbstractions"
-            url="git@bitbucket.org:digitalstirling/SystemAbstractions.git"
+            url="git@github.com:rhymu8354/SystemAbstractions.git"
             branch="master"
             />
         <repository
             path="Uri"
-            url="git@bitbucket.org:digitalstirling/uri.git"
+            url="git@github.com:rhymu8354/Uri.git"
             branch="master"
             />
         <repository
             path="Utf8"
-            url="git@bitbucket.org:digitalstirling/Utf8.git"
+            url="git@github.com:rhymu8354/Utf8.git"
             branch="master"
             />
         <repository
             path="WebServer"
-            url="git@bitbucket.org:digitalstirling/WebServer.git"
+            url="git@github.com:rhymu8354/WebServer.git"
             branch="master"
             />
         <repository
