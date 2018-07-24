@@ -1,3 +1,15 @@
 {
-    "port": 8080
+    "port": 8080,
+    "plugins-image": "E:/Projects/Excalibur/build/WebServer/Debug/plugins",
+    "plugins-runtime": "E:/Projects/Excalibur/build/WebServer/Debug/plugins/runtime",
+    "plugins-enabled": ["StaticContentPlugin"],
+    "plugins": {
+        "StaticContentPlugin": {
+            "module": "StaticContentPlugin",
+            "configuration": {
+                "space": "/",
+                "root": "E:/Projects/Excalibur/TestStaticContent"
+            }
+        }
+    }
 }
