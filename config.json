@@ -1,7 +1,10 @@
 {
-    "port": 8080,
-    "inactivityTimeout": 1000,
-    "requestTimeout": 60000,
+    "server": {
+        "Port": "8080",
+        "InactivityTimeout": "1.0",
+        "RequestTimeout": "60.0",
+        "IdleTimeout": "60.0"
+    },
     "plugins-image": "E:/Projects/Excalibur/build/WebServer/Debug/plugins",
     "plugins-runtime": "E:/Projects/Excalibur/build/WebServer/Debug/plugins/runtime",
     "plugins-enabled": ["StaticContentPlugin"],
