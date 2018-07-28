@@ -8,7 +8,7 @@
             "module": "StaticContentPlugin",
             "configuration": {
                 "space": "/",
-                "root": "E:/Projects/Excalibur/TestStaticContent"
+                "root": "E:/Projects/Excalibur/TestStaticContent",
                 "filter": {
                     "bar": ["*.html", "*.css"]
                 }
