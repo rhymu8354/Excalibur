@@ -9,6 +9,9 @@
             "configuration": {
                 "space": "/",
                 "root": "E:/Projects/Excalibur/TestStaticContent"
+                "filter": {
+                    "bar": ["*.html", "*.css"]
+                }
             }
         }
     }
