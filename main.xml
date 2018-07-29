@@ -42,6 +42,11 @@
             branch="master"
             />
         <repository
+            path="WebSockets"
+            url="git@github.com:rhymu8354/WebSockets.git"
+            branch="master"
+            />
+        <repository
             path="googletest"
             url="https://github.com/google/googletest.git"
             branch="master"
