@@ -77,6 +77,7 @@ if(ParentDirectory STREQUAL "")
     )
 
     # All other libraries can be pulled in without further configuration.
+    add_subdirectory(Base64)
     add_subdirectory(Http)
     add_subdirectory(HttpNetworkTransport)
     add_subdirectory(Json)

@@ -2,6 +2,11 @@
 <workspace>
     <repositories>
         <repository
+            path="Base64"
+            url="git@github.com:rhymu8354/Base64.git"
+            branch="master"
+            />
+        <repository
             path="Http"
             url="git@github.com:rhymu8354/Http.git"
             branch="master"
