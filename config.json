@@ -7,12 +7,18 @@
     },
     "plugins-image": "E:/Projects/Excalibur/build/WebServer/Debug/plugins",
     "plugins-runtime": "E:/Projects/Excalibur/build/WebServer/Debug/plugins/runtime",
-    "plugins-enabled": ["StaticContentPlugin"],
+    "plugins-enabled": ["ChatRoomPlugin", "StaticContentPlugin"],
     "plugins": {
+        "ChatRoomPlugin": {
+            "module": "ChatRoomPlugin",
+            "configuration": {
+                "space": "/chat"
+            }
+        },
         "StaticContentPlugin": {
             "module": "StaticContentPlugin",
             "configuration": {
-                "space": "/",
+                "space": "/static",
                 "root": "E:/Projects/Excalibur/TestStaticContent",
                 "filter": {
                     "bar": ["*.html", "*.css"]
