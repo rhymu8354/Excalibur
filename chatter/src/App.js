@@ -146,15 +146,17 @@ class App extends Component {
     }
 
     onSetNickname = () => {
-        this.setState({
-            nicknameToSet: this.state.newNickname,
-        });
-        const message = {
-            Type: "SetNickName",
-            NickName: this.state.newNickname,
-            Password: "SeemsGood",
-        };
-        this.socket.send(JSON.stringify(message));
+        if (this.socket) {
+            this.setState({
+                nicknameToSet: this.state.newNickname,
+            });
+            const message = {
+                Type: "SetNickName",
+                NickName: this.state.newNickname,
+                Password: "SeemsGood",
+            };
+            this.socket.send(JSON.stringify(message));
+        }
     }
 
     onResetNickname = () => {
