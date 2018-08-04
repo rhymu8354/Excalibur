@@ -17,6 +17,7 @@
 .App-main {
   font-size: large;
   margin-left: 1em;
+  margin-right: 1em;
   margin-top: 1em;
 }
 
@@ -34,6 +35,16 @@
 
 .App-Nickname-input {
     margin-left: 1em;
+}
+
+.App-main-left {
+    float: left;
+    width: 75%;
+}
+
+.App-main-right {
+    float: left;
+    width: 25%;
 }
 
 @keyframes App-logo-spin {
