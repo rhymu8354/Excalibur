@@ -11,6 +11,7 @@
 
 .App-title {
   font-size: 1.5em;
+  font-style: italic;
 }
 
 .App-main {
@@ -29,6 +30,10 @@
 
 .App-Socket-status {
     font-weight: bold;
+}
+
+.App-Nickname-input {
+    margin-left: 1em;
 }
 
 @keyframes App-logo-spin {
