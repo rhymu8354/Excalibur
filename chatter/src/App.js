@@ -28,6 +28,22 @@ class App extends Component {
              * in the chat room.
              */
             nicknames: [],
+
+            /**
+             * This is the text the user will send as a tell if
+             * they click the 'send' button.
+             */
+            newTell: '',
+
+            /**
+             * This holds the sequence of tells received from the room.
+             */
+            tells: [],
+
+            /**
+             * This is the next ID key to assign for the next tell received.
+             */
+            nextTellId: 1,
         };
         this.socket = null;
     }
@@ -41,6 +57,12 @@ class App extends Component {
     changeNewNickname = (event) => {
         this.setState({
             newNickname: event.target.value
+        });
+    }
+
+    changeNewTell = (event) => {
+        this.setState({
+            newTell: event.target.value
         });
     }
 
@@ -97,6 +119,18 @@ class App extends Component {
                 });
                 break;
 
+            case 'Tell':
+                const tell = {
+                    id: this.state.nextTellId,
+                    sender: message.Sender,
+                    tell: message.Tell,
+                };
+                this.setState({
+                    tells: [...this.state.tells, tell],
+                    nextTellId: this.state.nextTellId + 1,
+                });
+                break;
+
             default:
                 break;
         }
@@ -129,10 +163,26 @@ class App extends Component {
         });
     }
 
+    onSendTell = () => {
+        const message = {
+            Type: "Tell",
+            Tell: this.state.newTell
+        };
+        this.socket.send(JSON.stringify(message));
+        this.setState({
+            newTell: '',
+        });
+    }
+
     render() {
         const nicknames = this.state.nicknames.map((nickname) =>
             <li key={nickname}>
                 {nickname}
+            </li>
+        );
+        const tells = this.state.tells.map((tell) =>
+            <li key={tell.id}>
+                {tell.sender}: {tell.tell}
             </li>
         );
         return (
@@ -162,6 +212,17 @@ class App extends Component {
                             />
                             <button onClick={this.onSetNickname}>Set</button>
                             <button onClick={this.onResetNickname}>Reset</button>
+                        </div>
+                        <div className="App-Tells">
+                            <ul>{tells}</ul>
+                        </div>
+                        <div className="App-Tell">
+                            <input
+                                className="App-Tell-input"
+                                value={this.state.newTell}
+                                onChange={this.changeNewTell}
+                            />
+                            <button onClick={this.onSendTell}>Send</button>
                         </div>
                     </div>
                     <div className="App-main-right">
