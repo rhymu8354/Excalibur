@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AutoSizer, List } from 'react-virtualized';
 import './App.css';
 
 class App extends Component {
@@ -176,16 +177,38 @@ class App extends Component {
         });
     }
 
+    renderTell = ({
+        style,
+        key,
+        index,
+    }) => {
+        const tell = this.state.tells[index];
+        return (
+            <div style={style} key={key}>
+                {tell.sender}: {tell.tell}
+            </div>
+        );
+    }
+
     render() {
         const nicknames = this.state.nicknames.map((nickname) =>
             <li key={nickname}>
                 {nickname}
             </li>
         );
-        const tells = this.state.tells.map((tell) =>
-            <li key={tell.id}>
-                {tell.sender}: {tell.tell}
-            </li>
+        const tells = (
+            <AutoSizer>
+                {({ height, width }) => (
+                    <List
+                        height={height}
+                        rowCount={this.state.tells.length}
+                        rowHeight={21}
+                        rowRenderer={this.renderTell}
+                        scrollToIndex={this.state.tells.length - 1}
+                        width={width}
+                    />
+                )}
+            </AutoSizer>
         );
         return (
             <div className="App">
@@ -216,7 +239,7 @@ class App extends Component {
                             <button onClick={this.onResetNickname}>Reset</button>
                         </div>
                         <div className="App-Tells">
-                            <ul>{tells}</ul>
+                            {tells}
                         </div>
                         <div className="App-Tell">
                             <input
