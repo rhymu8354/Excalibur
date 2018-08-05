@@ -95,7 +95,6 @@ class App extends Component {
                 if (message.Success) {
                     this.setState({
                         currentNickname: this.state.nicknameToSet,
-                        nicknames: [...this.state.nicknames, this.state.nicknameToSet],
                     });
                 }
                 break;
