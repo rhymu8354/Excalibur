@@ -74,6 +74,10 @@ class App extends Component {
             (event) => { this.onConnected(); }
         );
         this.socket.addEventListener(
+            'close',
+            (event) => { this.onDisconnect(); }
+        );
+        this.socket.addEventListener(
             'message',
             (event) => { this.onMessageReceived(JSON.parse(event.data)); }
         );
