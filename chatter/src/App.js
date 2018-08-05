@@ -68,6 +68,9 @@ class App extends Component {
     }
 
     onConnect = () => {
+        if (this.socket) {
+            return;
+        }
         this.socket = new WebSocket('ws://' + this.state.serverUrl);
         this.socket.addEventListener(
             'open',
@@ -141,12 +144,15 @@ class App extends Component {
     }
 
     onDisconnect = () => {
-        this.setState({
-            socketStatus: "disconnected",
-            nicknames: [],
-            currentNickname: '',
-        });
-        this.socket.close();
+        if (this.socket) {
+            this.setState({
+                socketStatus: "disconnected",
+                nicknames: [],
+                currentNickname: '',
+            });
+            this.socket.close();
+            this.socket = null;
+        }
     }
 
     onSetNickname = () => {
@@ -170,14 +176,16 @@ class App extends Component {
     }
 
     onSendTell = () => {
-        const message = {
-            Type: "Tell",
-            Tell: this.state.newTell
-        };
-        this.socket.send(JSON.stringify(message));
-        this.setState({
-            newTell: '',
-        });
+        if (this.socket) {
+            const message = {
+                Type: "Tell",
+                Tell: this.state.newTell
+            };
+            this.socket.send(JSON.stringify(message));
+            this.setState({
+                newTell: '',
+            });
+        }
     }
 
     renderTell = ({
