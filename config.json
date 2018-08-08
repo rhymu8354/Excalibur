@@ -5,8 +5,8 @@
         "RequestTimeout": "60.0",
         "IdleTimeout": "60.0"
     },
-    "plugins-image": "E:/Projects/Excalibur/build/WebServer/Debug/plugins",
-    "plugins-runtime": "E:/Projects/Excalibur/build/WebServer/Debug/plugins/runtime",
+    "plugins-image": "plugins",
+    "plugins-runtime": "plugins/runtime",
     "plugins-enabled": ["ChatRoomPlugin", "StaticContentPlugin"],
     "plugins": {
         "ChatRoomPlugin": {
@@ -19,7 +19,7 @@
             "module": "StaticContentPlugin",
             "configuration": {
                 "space": "/static",
-                "root": "E:/Projects/Excalibur/TestStaticContent",
+                "root": "../../../TestStaticContent",
                 "filter": {
                     "bar": ["*.html", "*.css"]
                 }
