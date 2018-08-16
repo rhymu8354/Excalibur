@@ -12,7 +12,17 @@
         "ChatRoomPlugin": {
             "module": "ChatRoomPlugin",
             "configuration": {
-                "space": "/chat"
+                "space": "/chat",
+                "tellTimeout": 1.0,
+                "mathQuiz": {
+                    "minCoolDown": 10.0,
+                    "maxCoolDown": 30.0
+                },
+                "nicknames": [
+                    "Alice",
+                    "Bob",
+                    "Carol"
+                ]
             }
         },
         "StaticContentPlugin": {
