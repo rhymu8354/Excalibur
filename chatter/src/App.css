@@ -63,6 +63,14 @@
     width: 25%;
 }
 
+.App-Tell-award {
+    color: green;
+}
+
+.App-Tell-penalty {
+    color: red;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

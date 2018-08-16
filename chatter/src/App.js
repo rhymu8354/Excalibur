@@ -25,10 +25,9 @@ class App extends Component {
             nicknameToSet: '',
 
             /**
-             * These are the nicknames of the users currently
-             * in the chat room.
+             * These are the users currently in the chat room.
              */
-            nicknames: [],
+            users: [],
 
             /**
              * This is the text the user will send as a tell if
@@ -93,40 +92,44 @@ class App extends Component {
         if (this.state.newNickname !== '') {
             this.onSetNickname();
         }
-        this.socket.send(JSON.stringify({Type: "GetNickNames"}));
+        this.socket.send(JSON.stringify({Type: "GetUsers"}));
     }
 
     onMessageReceived = (message) => {
         switch (message.Type) {
-            case 'SetNickNameResult':
+            case 'SetNickNameResult': {
                 if (message.Success) {
                     this.setState({
                         currentNickname: this.state.nicknameToSet,
                     });
                 }
-                break;
+            } break;
 
-            case 'NickNames':
+            case 'Users': {
                 this.setState({
-                    nicknames: message.NickNames,
+                    users: message.Users,
                 });
-                break;
+            } break;
 
-            case 'Join':
+            case 'Join': {
+                const user = {
+                    "Nickname": message.NickName,
+                    "Points": 0,
+                };
                 this.setState({
-                    nicknames: [...this.state.nicknames, message.NickName],
+                    users: [...this.state.users, user],
                 });
-                break;
+            } break;
 
-            case 'Leave':
+            case 'Leave': {
                 this.setState({
-                    nicknames: this.state.nicknames.filter(
-                        nickname => nickname !== message.NickName
+                    users: this.state.users.filter(
+                        user => user.Nickname !== message.NickName
                     ),
                 });
-                break;
+            } break;
 
-            case 'Tell':
+            case 'Tell': {
                 const tell = {
                     id: this.state.nextTellId,
                     sender: message.Sender,
@@ -136,7 +139,49 @@ class App extends Component {
                     tells: [...this.state.tells, tell],
                     nextTellId: this.state.nextTellId + 1,
                 });
-                break;
+            } break;
+
+            case 'Award': {
+                const tell = {
+                    id: this.state.nextTellId,
+                    sender: null,
+                    color: "App-Tell-award",
+                    tell: `Congratulations, ${message.Subject}!  That's the correct answer.`,
+                };
+                let subject = this.state.users.find(user => user.Nickname === message.Subject);
+                ++subject.Points;
+                this.setState({
+                    tells: [...this.state.tells, tell],
+                    nextTellId: this.state.nextTellId + 1,
+                    users: [
+                        ...this.state.users.filter(
+                            user => user.Nickname !== message.Subject
+                        ),
+                        subject
+                    ],
+                });
+            } break;
+
+            case 'Penalty': {
+                const tell = {
+                    id: this.state.nextTellId,
+                    sender: null,
+                    color: "App-Tell-penalty",
+                    tell: `Sorry, ${message.Subject}, that isn't the correct answer.`,
+                };
+                let subject = this.state.users.find(user => user.Nickname === message.Subject);
+                --subject.Points;
+                this.setState({
+                    tells: [...this.state.tells, tell],
+                    nextTellId: this.state.nextTellId + 1,
+                    users: [
+                        ...this.state.users.filter(
+                            user => user.Nickname !== message.Subject
+                        ),
+                        subject
+                    ],
+                });
+            } break;
 
             default:
                 break;
@@ -147,7 +192,7 @@ class App extends Component {
         if (this.socket) {
             this.setState({
                 socketStatus: "disconnected",
-                nicknames: [],
+                users: [],
                 currentNickname: '',
             });
             this.socket.close();
@@ -194,18 +239,28 @@ class App extends Component {
         index,
     }) => {
         const tell = this.state.tells[index];
-        return (
-            <div style={style} key={key}>
-                {tell.sender}: {tell.tell}
-            </div>
-        );
+        if (tell.sender) {
+            return (
+                <div style={style} key={key}>
+                    {tell.sender}: {tell.tell}
+                </div>
+            );
+        } else {
+            return (
+                <div style={style} className={tell.color} key={key}>
+                    {tell.tell}
+                </div>
+            );
+        }
     }
 
     render() {
-        const nicknames = this.state.nicknames.map((nickname) =>
-            <li key={nickname}>
-                {nickname}
-            </li>
+        const users = this.state.users.sort((a, b) => b.Points - a.Points);
+        const nicknames = users.map((user) =>
+            <tr key={user.Nickname}>
+                <td>{user.Nickname}</td>
+                <td>{user.Points}</td>
+            </tr>
         );
         const tells = (
             <AutoSizer>
@@ -263,7 +318,17 @@ class App extends Component {
                     </div>
                     <div className="App-main-right">
                         Users currently here:
-                        <ul>{nicknames}</ul>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nickname</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {nicknames}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
