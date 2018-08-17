@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import { AutoSizer, List } from 'react-virtualized';
 import './App.css';
 
+/**
+ * This function adds the given element to the list, if it isn't
+ * already in the list.
+ * @param {*} list This is the list to which to add the element.
+ * @param {*} elementToAdd This is the element to add to the list.
+ */
+function addToList(list, elementToAdd) {
+    return [
+        elementToAdd,
+        ...list.filter((listElement) => listElement != elementToAdd)
+    ];
+}
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -15,14 +28,15 @@ class App extends Component {
             currentNickname: '',
 
             /**
-             * This is the nickname being typed by the user.
-             */
-            newNickname: '',
-
-            /**
              * This is the nickname that is being set in the server.
              */
             nicknameToSet: '',
+
+            /**
+             * These are the nicknames the server has provided
+             * as available for use.
+             */
+            availableNicknames: [],
 
             /**
              * These are the users currently in the chat room.
@@ -54,16 +68,20 @@ class App extends Component {
         });
     }
 
-    changeNewNickname = (event) => {
-        this.setState({
-            newNickname: event.target.value
-        });
-    }
-
     changeNewTell = (event) => {
         this.setState({
             newTell: event.target.value
         });
+    }
+
+    changeNickname = (event) => {
+        if (this.socket) {
+            this.onSetNickname(event.target.value);
+        } else {
+            this.setState({
+                currentNickname: event.target.value
+            });
+        }
     }
 
     onConnect = () => {
@@ -86,21 +104,26 @@ class App extends Component {
     }
 
     onConnected = () => {
+        const lastNickname = this.state.currentNickname;
         this.setState({
             socketStatus: "CONNECTED",
+            currentNickname: "",
         });
-        if (this.state.newNickname !== '') {
-            this.onSetNickname();
+        if (lastNickname !== '') {
+            this.onSetNickname(lastNickname);
         }
         this.socket.send(JSON.stringify({Type: "GetUsers"}));
+        this.socket.send(JSON.stringify({Type: "GetAvailableNickNames"}));
     }
 
     onMessageReceived = (message) => {
         switch (message.Type) {
             case 'SetNickNameResult': {
                 if (message.Success) {
+                    const currentNickname = this.state.nicknameToSet;
                     this.setState({
-                        currentNickname: this.state.nicknameToSet,
+                        currentNickname: currentNickname,
+                        availableNicknames: addToList(this.state.availableNicknames, currentNickname),
                     });
                 }
             } break;
@@ -111,6 +134,12 @@ class App extends Component {
                 });
             } break;
 
+            case 'AvailableNickNames': {
+                this.setState({
+                    availableNicknames: addToList(addToList(message.AvailableNickNames, this.state.currentNickname), ""),
+                });
+            } break;
+
             case 'Join': {
                 const user = {
                     "Nickname": message.NickName,
@@ -118,6 +147,13 @@ class App extends Component {
                 };
                 this.setState({
                     users: [...this.state.users, user],
+                    availableNicknames: this.state.availableNicknames.filter(
+                        (nickname) => (
+                            (nickname == this.state.currentNickname)
+                            || (nickname !== message.NickName)
+                            || (nickname === "")
+                        )
+                    ),
                 });
             } break;
 
@@ -126,6 +162,7 @@ class App extends Component {
                     users: this.state.users.filter(
                         user => user.Nickname !== message.NickName
                     ),
+                    availableNicknames: addToList(this.state.availableNicknames, message.NickName),
                 });
             } break;
 
@@ -193,31 +230,24 @@ class App extends Component {
             this.setState({
                 socketStatus: "disconnected",
                 users: [],
-                currentNickname: '',
             });
             this.socket.close();
             this.socket = null;
         }
     }
 
-    onSetNickname = () => {
+    onSetNickname = (nicknameToSet) => {
         if (this.socket) {
             this.setState({
-                nicknameToSet: this.state.newNickname,
+                nicknameToSet: nicknameToSet,
+                currentNickname: "",
             });
             const message = {
                 Type: "SetNickName",
-                NickName: this.state.newNickname,
-                Password: "SeemsGood",
+                NickName: nicknameToSet,
             };
             this.socket.send(JSON.stringify(message));
         }
-    }
-
-    onResetNickname = () => {
-        this.setState({
-            newNickname: this.state.nicknameToSet,
-        });
     }
 
     onSendTell = () => {
@@ -276,6 +306,16 @@ class App extends Component {
                 )}
             </AutoSizer>
         );
+        const availableNicknames = this.state.availableNicknames.sort(
+            (a, b) => {
+                if (a < b) return -1;
+                else if (a > b) return 1;
+                else return 0;
+            }
+        );
+        const nicknameSelectOptions = this.state.availableNicknames.map((availableNickname) => {
+            return <option key={availableNickname} value={availableNickname}>{availableNickname}</option>;
+        });
         return (
             <div className="App">
                 <header className="App-header">
@@ -296,13 +336,13 @@ class App extends Component {
                         </div>
                         <div>
                             Nickname:
-                            <input
+                            <select
                                 className="App-Nickname-input"
-                                value={this.state.newNickname}
-                                onChange={this.changeNewNickname}
-                            />
-                            <button onClick={this.onSetNickname}>Set</button>
-                            <button onClick={this.onResetNickname}>Reset</button>
+                                value={this.state.currentNickname}
+                                onChange={this.changeNickname}
+                            >
+                                {nicknameSelectOptions}
+                            </select>
                         </div>
                         <div className="App-Tells">
                             {tells}
