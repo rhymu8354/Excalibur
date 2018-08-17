@@ -19,7 +19,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            serverUrl: 'localhost:8080/chat',
+            serverUrl: `${window.location.hostname}/chat`,
             socketStatus: "disconnected",
 
             /**
