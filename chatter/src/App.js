@@ -74,6 +74,12 @@ class App extends Component {
         });
     }
 
+    tellKeyPress = (event) => {
+        if (event.charCode == 13) {
+            this.onSendTell();
+        }
+    }
+
     changeNickname = (event) => {
         if (this.socket) {
             this.onSetNickname(event.target.value);
@@ -352,6 +358,7 @@ class App extends Component {
                                 className="App-Tell-input"
                                 value={this.state.newTell}
                                 onChange={this.changeNewTell}
+                                onKeyPress={this.tellKeyPress}
                             />
                             <button onClick={this.onSendTell}>Send</button>
                         </div>
