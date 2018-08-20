@@ -7,7 +7,7 @@
     },
     "plugins-image": "plugins",
     "plugins-runtime": "plugins/runtime",
-    "plugins-enabled": ["ChatRoomPlugin", "StaticContentPlugin"],
+    "plugins-enabled": ["ChatRoomPlugin", "EchoPlugin", "StaticContentPlugin"],
     "plugins": {
         "ChatRoomPlugin": {
             "module": "ChatRoomPlugin",
@@ -23,6 +23,12 @@
                     "Bob",
                     "Carol"
                 ]
+            }
+        },
+        "EchoPlugin": {
+            "module": "EchoPlugin",
+            "configuration": {
+                "space": "/echo"
             }
         },
         "StaticContentPlugin": {
