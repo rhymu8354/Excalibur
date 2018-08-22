@@ -181,6 +181,7 @@ class App extends Component {
                     id: this.state.nextTellId,
                     sender: message.Sender,
                     tell: message.Tell,
+                    time: message.Time,
                 };
                 this.setState({
                     tells: [...this.state.tells, tell],
@@ -282,13 +283,13 @@ class App extends Component {
         if (tell.sender) {
             return (
                 <div style={style} key={key}>
-                    {tell.sender}: {tell.tell}
+                    [{tell.time}] {tell.sender}: {tell.tell}
                 </div>
             );
         } else {
             return (
                 <div style={style} className={tell.color} key={key}>
-                    {tell.tell}
+                    [{tell.time}] {tell.tell}
                 </div>
             );
         }
