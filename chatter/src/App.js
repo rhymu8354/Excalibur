@@ -11,7 +11,7 @@ import './App.css';
 function addToList(list, elementToAdd) {
     return [
         elementToAdd,
-        ...list.filter((listElement) => listElement != elementToAdd)
+        ...list.filter((listElement) => listElement !== elementToAdd)
     ];
 }
 
@@ -75,7 +75,7 @@ class App extends Component {
     }
 
     tellKeyPress = (event) => {
-        if (event.charCode == 13) {
+        if (event.charCode === 13) {
             this.onSendTell();
         }
     }
@@ -124,6 +124,7 @@ class App extends Component {
 
     onMessageReceived = (message) => {
         switch (message.Type) {
+            // eslint-disable-next-line
             case 'SetNickNameResult': {
                 if (message.Success) {
                     const currentNickname = this.state.nicknameToSet;
@@ -134,12 +135,14 @@ class App extends Component {
                 }
             } break;
 
+            // eslint-disable-next-line
             case 'Users': {
                 this.setState({
                     users: message.Users,
                 });
             } break;
 
+            // eslint-disable-next-line
             case 'AvailableNickNames': {
                 this.setState({
                     availableNicknames: addToList(addToList(message.AvailableNickNames, this.state.currentNickname), ""),
@@ -155,7 +158,7 @@ class App extends Component {
                     users: [...this.state.users, user],
                     availableNicknames: this.state.availableNicknames.filter(
                         (nickname) => (
-                            (nickname == this.state.currentNickname)
+                            (nickname === this.state.currentNickname)
                             || (nickname !== message.NickName)
                             || (nickname === "")
                         )
@@ -163,6 +166,7 @@ class App extends Component {
                 });
             } break;
 
+            // eslint-disable-next-line
             case 'Leave': {
                 this.setState({
                     users: this.state.users.filter(
@@ -312,14 +316,14 @@ class App extends Component {
                 )}
             </AutoSizer>
         );
-        const availableNicknames = this.state.availableNicknames.sort(
+        const availableNicknames = [...this.state.availableNicknames].sort(
             (a, b) => {
                 if (a < b) return -1;
                 else if (a > b) return 1;
                 else return 0;
             }
         );
-        const nicknameSelectOptions = this.state.availableNicknames.map((availableNickname) => {
+        const nicknameSelectOptions = availableNicknames.map((availableNickname) => {
             return <option key={availableNickname} value={availableNickname}>{availableNickname}</option>;
         });
         return (
