@@ -15,6 +15,30 @@ function addToList(list, elementToAdd) {
     ];
 }
 
+/**
+ * This function returns a string which is a pretty formatting
+ * of a time in seconds.
+ * @param {*} time
+ */
+function formatTime(time) {
+    const hours = Math.floor(time / 3600);
+    time = time - (hours * 3600);
+    const minutes = Math.floor(time / 60);
+    time = time - (minutes * 60);
+    const seconds = Math.floor(time);
+    time = time - seconds;
+    const milliseconds = Math.floor(time * 1000);
+    return (
+        hours.toString().padStart(2, '0')
+        + ':'
+        + minutes.toString().padStart(2, '0')
+        + ':'
+        + seconds.toString().padStart(2, '0')
+        + '.'
+        + milliseconds.toString().padStart(3, '0')
+    );
+}
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -283,13 +307,13 @@ class App extends Component {
         if (tell.sender) {
             return (
                 <div style={style} key={key}>
-                    [{tell.time}] {tell.sender}: {tell.tell}
+                    [{formatTime(tell.time)}] {tell.sender}: {tell.tell}
                 </div>
             );
         } else {
             return (
                 <div style={style} className={tell.color} key={key}>
-                    [{tell.time}] {tell.tell}
+                    [{formatTime(tell.time)}] {tell.tell}
                 </div>
             );
         }
