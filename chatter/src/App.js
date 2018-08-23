@@ -219,6 +219,7 @@ class App extends Component {
                     sender: null,
                     color: "App-Tell-award",
                     tell: `Congratulations, ${message.Subject}!  That's the correct answer.`,
+                    time: message.Time,
                 };
                 let subject = this.state.users.find(user => user.Nickname === message.Subject);
                 ++subject.Points;
@@ -240,6 +241,7 @@ class App extends Component {
                     sender: null,
                     color: "App-Tell-penalty",
                     tell: `Sorry, ${message.Subject}, that isn't the correct answer.`,
+                    time: message.Time,
                 };
                 let subject = this.state.users.find(user => user.Nickname === message.Subject);
                 --subject.Points;
