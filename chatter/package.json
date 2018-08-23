@@ -2,7 +2,7 @@
   "name": "chatter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "htp:///static",
+  "homepage": "htp:///chatter",
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

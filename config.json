@@ -40,8 +40,16 @@
         "StaticContentPlugin": {
             "module": "StaticContentPlugin",
             "configuration": {
-                "space": "/static",
-                "root": "../../../TestStaticContent",
+                "spaces": [
+                    {
+                        "space": "/static",
+                        "root": "../../../TestStaticContent"
+                    },
+                    {
+                        "space": "/chatter",
+                        "root": "../../../chatter/build"
+                    }
+                ],
                 "filter": {
                     "bar": ["*.html", "*.css"]
                 }
