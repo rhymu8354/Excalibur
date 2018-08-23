@@ -1,9 +1,15 @@
 {
     "server": {
+        "HeaderLineLimit": "1000",
         "Port": "8080",
         "InactivityTimeout": "1.0",
         "RequestTimeout": "60.0",
-        "IdleTimeout": "60.0"
+        "IdleTimeout": "60.0",
+        "BadRequestReportBytes": "100",
+        "InitialBanPeriod": "60.0",
+        "ProbationPeriod": "60.0",
+        "TooManyRequestsThreshold": "10.0",
+        "TooManyRequestsMeasurementPeriod": "1.0"
     },
     "plugins-image": "plugins",
     "plugins-runtime": "plugins/runtime",
