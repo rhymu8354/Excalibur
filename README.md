@@ -31,6 +31,21 @@ The following plug-ins are provided with the solution:
   own HTTP request's headers
 * StaticContent -- serves static content from the host file system
 
+To run the WebServer, assemble the desired plug-ins into a folder and give the path from
+the WebServer executable to that folder in the "plugins-image" configuration item.  Also
+set the "plugins-runtime" configuration item to a path from the WebServer executable
+to a temporary folder to be used to actually load and run the plug-in modules.  Set other
+configuration items as desired, and run the WebServer.
+
+WebServer looks for its configuration file as named "config.json" and located either
+in the current working directory or the directory containing the WebServer executable.
+To override the path/name of the configuration file, provide it on the command line
+using the "-c" argument, as in:
+
+```bash
+WebServer -c path/to/config/server-config.json
+```
+
 ### chatter
 
 This is a web client app, based on the [React](https://reactjs.org/) JavaScript framework.
