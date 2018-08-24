@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import { AutoSizer, List } from 'react-virtualized';
+import moment from 'moment';
 import './App.css';
-
-/**
- * This is the number of seconds that the client is offset
- * from UTC (Coordinated Universal Time).
- */
-const timezoneOffset = new Date().getTimezoneOffset() * 60;
 
 /**
  * This function adds the given element to the list, if it isn't
@@ -27,30 +22,14 @@ function addToList(list, elementToAdd) {
  * @param {*} time
  */
 function formatTime(time) {
-    time = time - timezoneOffset;
-    const hours = Math.floor(time / 3600);
-    time = time - (hours * 3600);
-    const minutes = Math.floor(time / 60);
-    time = time - (minutes * 60);
-    const seconds = Math.floor(time);
-    time = time - seconds;
-    const milliseconds = Math.floor(time * 1000);
-    return (
-        hours.toString().padStart(2, '0')
-        + ':'
-        + minutes.toString().padStart(2, '0')
-        + ':'
-        + seconds.toString().padStart(2, '0')
-        + '.'
-        + milliseconds.toString().padStart(3, '0')
-    );
+    return moment(time * 1000).format('HH:mm:ss.SSS');
 }
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            serverUrl: `${window.location.hostname}/chat`,
+            serverUrl: `${window.location.hostname}:8080/chat`,
             socketStatus: "disconnected",
 
             /**
