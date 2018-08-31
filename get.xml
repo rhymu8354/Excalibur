@@ -27,6 +27,11 @@
             branch="master"
             />
         <repository
+            path="Rover"
+            url="https://github.com/rhymu8354/Rover.git"
+            branch="master"
+            />
+        <repository
             path="Sha1"
             url="https://github.com/rhymu8354/Sha1.git"
             branch="master"
