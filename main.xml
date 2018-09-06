@@ -22,6 +22,11 @@
             branch="master"
             />
         <repository
+            path="LibreSSL"
+            url="git@github.com:rhymu8354/LibreSSL.git"
+            branch="master"
+            />
+        <repository
             path="MessageHeaders"
             url="git@github.com:rhymu8354/MessageHeaders.git"
             branch="master"
