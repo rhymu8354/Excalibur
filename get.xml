@@ -47,6 +47,11 @@
             branch="master"
             />
         <repository
+            path="TlsDecorator"
+            url="https://github.com/rhymu8354/TlsDecorator.git"
+            branch="master"
+            />
+        <repository
             path="Uri"
             url="https://github.com/rhymu8354/Uri.git"
             branch="master"
