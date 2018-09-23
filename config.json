@@ -11,6 +11,10 @@
         "TooManyRequestsThreshold": "10.0",
         "TooManyRequestsMeasurementPeriod": "1.0"
     },
+    "secure": true,
+    "sslCertificate": "cert.pem",
+    "sslKey": "key.pem",
+    "sslKeyPassphrase": "password",
     "plugins-image": "plugins",
     "plugins-runtime": "plugins/runtime",
     "plugins-enabled": ["ChatRoomPlugin", "EchoPlugin", "StaticContentPlugin"],
