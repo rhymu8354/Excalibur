@@ -52,6 +52,11 @@
             branch="master"
             />
         <repository
+            path="Twitch"
+            url="git@github.com:rhymu8354/Twitch.git"
+            branch="master"
+            />
+        <repository
             path="Uri"
             url="git@github.com:rhymu8354/Uri.git"
             branch="master"
