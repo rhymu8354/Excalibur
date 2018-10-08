@@ -57,6 +57,11 @@
             branch="master"
             />
         <repository
+            path="TwitchNetworkTransport"
+            url="git@github.com:rhymu8354/TwitchNetworkTransport.git"
+            branch="master"
+            />
+        <repository
             path="Uri"
             url="git@github.com:rhymu8354/Uri.git"
             branch="master"
