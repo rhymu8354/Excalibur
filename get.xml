@@ -28,7 +28,7 @@
             />
         <repository
             path="MathBot2001"
-            url="https://github.com:rhymu8354/MathBot2001.git"
+            url="https://github.com/rhymu8354/MathBot2001.git"
             branch="master"
             />
         <repository
@@ -63,7 +63,7 @@
             />
         <repository
             path="TwitchNetworkTransport"
-            url="https://github.com:rhymu8354/TwitchNetworkTransport.git"
+            url="https://github.com/rhymu8354/TwitchNetworkTransport.git"
             branch="master"
             />
         <repository
