@@ -104,7 +104,7 @@ class App extends Component {
         if (this.socket) {
             return;
         }
-        this.socket = new WebSocket('ws://' + this.state.serverUrl);
+        this.socket = new WebSocket('wss://' + this.state.serverUrl);
         this.socket.addEventListener(
             'open',
             (event) => { this.onConnected(); }
