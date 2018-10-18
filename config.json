@@ -47,12 +47,12 @@
             "configuration": {
                 "spaces": [
                     {
-                        "space": "/static",
-                        "root": "../../../TestStaticContent"
+                        "space": "/",
+                        "root": "../../TestStaticContent"
                     },
                     {
                         "space": "/chatter",
-                        "root": "../../../chatter/build"
+                        "root": "../../chatter/build"
                     }
                 ],
                 "filter": {
