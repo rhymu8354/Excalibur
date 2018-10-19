@@ -97,5 +97,11 @@
             branch="master"
             revision="db5f9ec567daff3beba53fd0bcd98e3f3562404c"
             />
+        <repository
+            path="zlib"
+            url="https://github.com/madler/zlib.git"
+            branch="master"
+            revision="cacf7f1d4e3d44d871b605da3b647f07d718623f"
+            />
     </repositories>
 </workspace>

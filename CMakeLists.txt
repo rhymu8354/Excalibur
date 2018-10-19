@@ -87,6 +87,13 @@ if(ParentDirectory STREQUAL "")
         FOLDER Libraries/LibreSSL
     )
 
+    # zlib
+    add_subdirectory(zlib)
+    foreach(Child zlib zlibstatic)
+        set_target_properties(${Child} PROPERTIES FOLDER Libraries/zlib)
+        target_include_directories(${Child} INTERFACE $<TARGET_PROPERTY:zlib,SOURCE_DIR> $<TARGET_PROPERTY:zlib,BINARY_DIR>)
+    endforeach()
+
     # All other libraries can be pulled in without further configuration.
     add_subdirectory(Base64)
     add_subdirectory(Http)
@@ -105,6 +112,7 @@ if(ParentDirectory STREQUAL "")
     add_subdirectory(Utf8)
     add_subdirectory(WebServer)
     add_subdirectory(WebSockets)
+    add_subdirectory(ZlibPlay)
 endif(ParentDirectory STREQUAL "")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
