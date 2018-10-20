@@ -99,9 +99,8 @@
             />
         <repository
             path="zlib"
-            url="https://github.com/madler/zlib.git"
-            branch="master"
-            revision="cacf7f1d4e3d44d871b605da3b647f07d718623f"
+            url="https://github.com/rhymu8354/zlib.git"
+            branch="cmake-friendly"
             />
     </repositories>
 </workspace>
