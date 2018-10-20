@@ -88,6 +88,7 @@ if(ParentDirectory STREQUAL "")
     )
 
     # zlib
+    set(ZLIB_EXTRAS OFF CACHE BOOL "Build zlib extras" FORCE)
     add_subdirectory(zlib)
     foreach(Child zlib zlibstatic)
         set_target_properties(${Child} PROPERTIES FOLDER Libraries/zlib)
