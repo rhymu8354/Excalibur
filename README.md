@@ -71,7 +71,8 @@ a "bot" which is built into the chat room.
   * e-mail: [RFC 5322](https://tools.ietf.org/html/rfc5322)
   * HTTP (web): [RFC 7230](https://tools.ietf.org/html/rfc7320)
   * SIP (VoIP): [RFC 3261](https://tools.ietf.org/html/3261)
-* Sha1 -- Implementation of the Secure Hash Algorithm 1 (SHA-1) described in
+* Hash -- Implementation of various hash (message digest) functions, such
+  as the Secure Hash Algorithm 1 (SHA-1) described in
   [RFC 3174](https://tools.ietf.org/html/rfc3174).
 * SystemAbstractions -- Library containing classes which are either common
   utilities or wrap common operating system services whose interfaces vary
