@@ -7,6 +7,11 @@
             branch="master"
             />
         <repository
+            path="Hash"
+            url="https://github.com/rhymu8354/Hash.git"
+            branch="master"
+            />
+        <repository
             path="Http"
             url="https://github.com/rhymu8354/Http.git"
             branch="master"
