@@ -92,6 +92,11 @@
             branch="master"
             />
         <repository
+            path="aws-sig-v4-test-suite"
+            url="https://github.com/rhymu8354/aws-sig-v4-test-suite.git"
+            branch="master"
+            />
+        <repository
             path="googletest"
             url="https://github.com/google/googletest.git"
             branch="master"

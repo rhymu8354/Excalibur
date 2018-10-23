@@ -68,6 +68,9 @@ if(ParentDirectory STREQUAL "")
     # Suppress Microsoft warnings about functions being unsafe.
     add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS)
 
+    # Specify where to find the AWS Signature Version 4 Test Suite.
+    set(AWS_SIG_4_TEST_SUITE "${CMAKE_CURRENT_SOURCE_DIR}/aws-sig-v4-test-suite")
+
     # Google Test
     set(BUILD_GTEST ON CACHE BOOL "Builds the googletest subproject" FORCE)
     set(BUILD_GMOCK OFF CACHE BOOL "Builds the googlemock subproject" FORCE)
