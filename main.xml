@@ -2,6 +2,11 @@
 <workspace>
     <repositories>
         <repository
+            path="Aws"
+            url="git@github.com:rhymu8354/Aws.git"
+            branch="master"
+            />
+        <repository
             path="Base64"
             url="git@github.com:rhymu8354/Base64.git"
             branch="master"

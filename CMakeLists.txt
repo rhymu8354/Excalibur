@@ -99,6 +99,7 @@ if(ParentDirectory STREQUAL "")
     endforeach()
 
     # All other libraries can be pulled in without further configuration.
+    add_subdirectory(Aws)
     add_subdirectory(Base64)
     add_subdirectory(Hash)
     add_subdirectory(Http)
