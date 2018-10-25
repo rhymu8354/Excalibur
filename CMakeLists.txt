@@ -120,6 +120,7 @@ if(ParentDirectory STREQUAL "")
 endif(ParentDirectory STREQUAL "")
 
 # Add subdirectories directly in this repository.
+add_subdirectory(AwsPlay)
 add_subdirectory(ZlibPlay)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
