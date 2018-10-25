@@ -7,6 +7,7 @@
  * © 2018 by Richard Walters
  */
 
+#include <Aws/Config.hpp>
 #include <SystemAbstractions/File.hpp>
 #include <stdlib.h>
 #include <stdio.h>
@@ -104,6 +105,27 @@ int main(int argc, char* argv[]) {
     printf(
         "Home directory: %s\n",
         SystemAbstractions::File::GetUserHomeDirectory().c_str()
+    );
+
+    // What is our access key?
+    const auto defaults = Aws::Config::GetDefaults();
+    printf(
+        "Access key ID: %s\n",
+        defaults.accessKeyId.c_str()
+    );
+    printf(
+        "Secret access key: %s\n",
+        defaults.secretAccessKey.c_str()
+    );
+    printf(
+        "Session token: %s\n",
+        defaults.sessionToken.c_str()
+    );
+
+    // What region of AWS are we talking to?
+    printf(
+        "AWS region: %s\n",
+        defaults.region.c_str()
     );
 
     // Done.
