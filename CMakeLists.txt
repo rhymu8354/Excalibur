@@ -117,7 +117,9 @@ if(ParentDirectory STREQUAL "")
     add_subdirectory(Utf8)
     add_subdirectory(WebServer)
     add_subdirectory(WebSockets)
-    add_subdirectory(ZlibPlay)
 endif(ParentDirectory STREQUAL "")
+
+# Add subdirectories directly in this repository.
+add_subdirectory(ZlibPlay)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
