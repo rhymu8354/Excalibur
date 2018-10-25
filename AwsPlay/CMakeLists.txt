@@ -7,6 +7,8 @@ set(This AwsPlay)
 
 set(Sources
     src/main.cpp
+    src/TimeKeeper.cpp
+    src/TimeKeeper.hpp
 )
 
 add_executable(${This} ${Sources})
@@ -16,7 +18,10 @@ set_target_properties(${This} PROPERTIES
 
 target_link_libraries(${This} PUBLIC
     Aws
+    Http
+    HttpNetworkTransport
     SystemAbstractions
+    TlsDecorator
 )
 
 if(UNIX AND NOT APPLE)
@@ -24,3 +29,7 @@ if(UNIX AND NOT APPLE)
         -static-libstdc++
     )
 endif(UNIX AND NOT APPLE)
+
+add_custom_command(TARGET ${This} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_PROPERTY:tls,SOURCE_DIR>/../apps/openssl/cert.pem $<TARGET_FILE_DIR:${This}>
+)
