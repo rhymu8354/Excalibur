@@ -248,7 +248,6 @@ namespace {
         const auto date = AmzTimestamp(time(NULL));
         Http::Request request;
         request.method = "GET";
-        request.target.SetScheme("https");
         request.target.SetHost(host);
         request.target.SetPort(443);
         request.target.SetPath({""});
