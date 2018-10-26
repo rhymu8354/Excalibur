@@ -12,7 +12,6 @@
         "TooManyRequestsMeasurementPeriod": "1.0"
     },
     "secure": true,
-    "sslDiagnosticsLevel": 1,
     "sslCertificate": "cert.pem",
     "sslKey": "key.pem",
     "sslKeyPassphrase": "password",
