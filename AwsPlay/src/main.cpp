@@ -173,7 +173,10 @@ namespace {
             [
                 diagnosticMessageDelegate,
                 caCerts
-            ](const std::string& serverName) -> std::shared_ptr< SystemAbstractions::INetworkConnection > {
+            ](
+                const std::string& scheme,
+                const std::string& serverName
+            ) -> std::shared_ptr< SystemAbstractions::INetworkConnection > {
                 const auto decorator = std::make_shared< TlsDecorator::TlsDecorator >();
                 const auto connection = std::make_shared< SystemAbstractions::NetworkConnection >();
                 decorator->ConfigureAsClient(connection, caCerts, serverName);
