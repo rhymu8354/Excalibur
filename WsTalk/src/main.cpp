@@ -316,6 +316,10 @@ namespace {
      * @param[in,out] client
      *     This is the client to use to connect to the server.
      *
+     * @param[in] closeDelegate
+     *     This is the delegate to provide to the WebSocket to be called
+     *     whenever the WebSocket is closed.
+     *
      * @param[in] url
      *     This is the URL of the server to which to connect.
      *
@@ -332,6 +336,7 @@ namespace {
      */
     std::shared_ptr< WebSockets::WebSocket > ConnectToWebSocket(
         Http::Client& client,
+        WebSockets::WebSocket::CloseReceivedDelegate closeDelegate,
         const Uri::Uri& url,
         SystemAbstractions::DiagnosticsSender::DiagnosticMessageDelegate diagnosticMessageDelegate
     ) {
@@ -346,24 +351,23 @@ namespace {
         const auto ws = std::make_shared< WebSockets::WebSocket >();
         ws->SubscribeToDiagnostics(diagnosticMessageDelegate);
         ws->StartOpenAsClient(request);
-        ws->SetTextDelegate(
-            [diagnosticMessageDelegate](const std::string& data){
-                diagnosticMessageDelegate(
-                    "WsTalk",
-                    1,
-                    "Text from WebSocket: " + data
-                );
-            }
-        );
-        ws->SetPingDelegate(
-            [diagnosticMessageDelegate](const std::string& data){
-                diagnosticMessageDelegate(
-                    "WsTalk",
-                    0,
-                    "Ping from WebSocket: " + data
-                );
-            }
-        );
+        WebSockets::WebSocket::Delegates wsDelegates;
+        wsDelegates.text = [diagnosticMessageDelegate](const std::string& data){
+            diagnosticMessageDelegate(
+                "WsTalk",
+                1,
+                "Text from WebSocket: " + data
+            );
+        };
+        wsDelegates.ping = [diagnosticMessageDelegate](const std::string& data){
+            diagnosticMessageDelegate(
+                "WsTalk",
+                0,
+                "Ping from WebSocket: " + data
+            );
+        };
+        wsDelegates.close = closeDelegate;
+        ws->SetDelegates(std::move(wsDelegates));
         bool wsEngaged = false;
         const auto transaction = client.Request(
             request,
@@ -518,41 +522,40 @@ int main(int argc, char* argv[]) {
     }
 
     // Connect to the web server and request an upgrade to a WebSocket.
+    bool wsClosed = false;
+    std::mutex mutex;
+    std::condition_variable condition;
+    const auto closeDelegate = [
+        diagnosticsPublisher,
+        &wsClosed,
+        &mutex,
+        &condition
+    ](
+        unsigned int code,
+        const std::string& reason
+    ){
+        std::lock_guard< std::mutex > lock(mutex);
+        wsClosed = true;
+        condition.notify_one();
+        diagnosticsPublisher(
+            "WsTalk",
+            3,
+            SystemAbstractions::sprintf(
+                "WebSocket closed: %u %s",
+                code,
+                reason.c_str()
+            )
+        );
+    };
     auto ws = ConnectToWebSocket(
         client,
+        closeDelegate,
         environment.url,
         diagnosticsPublisher
     );
     if (ws == nullptr) {
         return EXIT_FAILURE;
     }
-    bool wsClosed = false;
-    std::mutex mutex;
-    std::condition_variable condition;
-    ws->SetCloseDelegate(
-        [
-            diagnosticsPublisher,
-            &wsClosed,
-            &mutex,
-            &condition
-        ](
-            unsigned int code,
-            const std::string& reason
-        ){
-            std::lock_guard< std::mutex > lock(mutex);
-            wsClosed = true;
-            condition.notify_one();
-            diagnosticsPublisher(
-                "WsTalk",
-                3,
-                SystemAbstractions::sprintf(
-                    "WebSocket closed: %u %s",
-                    code,
-                    reason.c_str()
-                )
-            );
-        }
-    );
 
     // Shut down the client, since we no longer need it.
     StopClient(client);
