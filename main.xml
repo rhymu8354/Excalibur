@@ -52,6 +52,11 @@
             branch="master"
             />
         <repository
+            path="Raft"
+            url="git@github.com:rhymu8354/Raft.git"
+            branch="master"
+            />
+        <repository
             path="Rover"
             url="git@github.com:rhymu8354/Rover.git"
             branch="master"
