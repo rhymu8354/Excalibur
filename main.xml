@@ -2,6 +2,11 @@
 <workspace>
     <repositories>
         <repository
+            path="AsyncData"
+            url="git@github.com:rhymu8354/AsyncData.git"
+            branch="master"
+            />
+        <repository
             path="Aws"
             url="git@github.com:rhymu8354/Aws.git"
             branch="master"
@@ -62,8 +67,18 @@
             branch="master"
             />
         <repository
+            path="Serialization"
+            url="git@github.com:rhymu8354/Serialization.git"
+            branch="master"
+            />
+        <repository
             path="SystemAbstractions"
             url="git@github.com:rhymu8354/SystemAbstractions.git"
+            branch="master"
+            />
+        <repository
+            path="Timekeeping"
+            url="git@github.com:rhymu8354/Timekeeping.git"
             branch="master"
             />
         <repository

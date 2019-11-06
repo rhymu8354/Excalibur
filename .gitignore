@@ -1,3 +1,6 @@
+/AsyncData/
+/Serialization/
+/Timekeeping/
 /Raft/
 /Aws/
 /aws-sig-v4-test-suite/
