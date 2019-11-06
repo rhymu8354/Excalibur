@@ -7,6 +7,7 @@
  * © 2018 by Richard Walters
  */
 
+#include "HexDumpNetworkConnectionDecorator.hpp"
 #include "TimeKeeper.hpp"
 
 #include <condition_variable>
@@ -297,10 +298,15 @@ namespace {
                 const std::string& scheme,
                 const std::string& serverName
             ) -> std::shared_ptr< SystemAbstractions::INetworkConnection > {
-                const auto decorator = std::make_shared< TlsDecorator::TlsDecorator >();
+                const auto hexDumpNetworkConnectionDecorator = std::make_shared< HexDumpNetworkConnectionDecorator >();
+                const auto tlsDecorator = std::make_shared< TlsDecorator::TlsDecorator >();
                 const auto connection = std::make_shared< SystemAbstractions::NetworkConnection >();
-                decorator->ConfigureAsClient(connection, caCerts, serverName);
-                return decorator;
+                tlsDecorator->ConfigureAsClient(connection, caCerts, serverName);
+                const auto hexDumpDelegate = [diagnosticMessageDelegate](const std::string& line){
+                    diagnosticMessageDelegate("Connection", 3, line);
+                };
+                hexDumpNetworkConnectionDecorator->Decorate(tlsDecorator, hexDumpDelegate);
+                return hexDumpNetworkConnectionDecorator;
             }
         );
         deps.transport = transport;
@@ -581,7 +587,7 @@ int main(int argc, char* argv[]) {
         diagnosticsPublisher(
             "WsTalk",
             1,
-            "Sending text message: \"" + line + "\""
+            "Sending text message: " + line
         );
         ws->SendText(line);
     }

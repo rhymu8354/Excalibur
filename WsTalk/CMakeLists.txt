@@ -9,6 +9,8 @@ set(Sources
     src/main.cpp
     src/TimeKeeper.cpp
     src/TimeKeeper.hpp
+    src/HexDumpNetworkConnectionDecorator.cpp
+    src/HexDumpNetworkConnectionDecorator.hpp
 )
 
 add_executable(${This} ${Sources})
