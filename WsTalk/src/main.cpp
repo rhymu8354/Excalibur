@@ -298,15 +298,20 @@ namespace {
                 const std::string& scheme,
                 const std::string& serverName
             ) -> std::shared_ptr< SystemAbstractions::INetworkConnection > {
-                const auto hexDumpNetworkConnectionDecorator = std::make_shared< HexDumpNetworkConnectionDecorator >();
+                const auto hexDumpNetworkConnectionUpperDecorator = std::make_shared< HexDumpNetworkConnectionDecorator >();
                 const auto tlsDecorator = std::make_shared< TlsDecorator::TlsDecorator >();
+                const auto hexDumpNetworkConnectionLowerDecorator = std::make_shared< HexDumpNetworkConnectionDecorator >();
                 const auto connection = std::make_shared< SystemAbstractions::NetworkConnection >();
-                tlsDecorator->ConfigureAsClient(connection, caCerts, serverName);
-                const auto hexDumpDelegate = [diagnosticMessageDelegate](const std::string& line){
-                    diagnosticMessageDelegate("Connection", 3, line);
+                const auto hexDumpLowerDelegate = [diagnosticMessageDelegate](const std::string& line){
+                    diagnosticMessageDelegate("Wire", 3, line);
                 };
-                hexDumpNetworkConnectionDecorator->Decorate(tlsDecorator, hexDumpDelegate);
-                return hexDumpNetworkConnectionDecorator;
+                hexDumpNetworkConnectionLowerDecorator->Decorate(connection, hexDumpLowerDelegate);
+                tlsDecorator->ConfigureAsClient(hexDumpNetworkConnectionLowerDecorator, caCerts, serverName);
+                const auto hexDumpUpperDelegate = [diagnosticMessageDelegate](const std::string& line){
+                    diagnosticMessageDelegate("TLS", 3, line);
+                };
+                hexDumpNetworkConnectionUpperDecorator->Decorate(tlsDecorator, hexDumpUpperDelegate);
+                return hexDumpNetworkConnectionUpperDecorator;
             }
         );
         deps.transport = transport;
