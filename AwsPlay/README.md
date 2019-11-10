@@ -42,6 +42,9 @@ There are two distinct steps in the build process:
   [Visual Studio](https://www.visualstudio.com/) on Windows)
 * [Aws](https://github.com/rhymu8354/Aws.git) - library for interfacing with
   Amazon Web Services (AWS)
+* [StringExtensions](https://github.com/rhymu8354/StringExtensions.git) - a
+  library containing C++ string-oriented libraries, many of which ought to be
+  in the standard library, but aren't.
 * [SystemAbstractions](https://github.com/rhymu8354/SystemAbstractions.git) - a
   cross-platform adapter library for system services whose APIs vary from one
   operating system to another

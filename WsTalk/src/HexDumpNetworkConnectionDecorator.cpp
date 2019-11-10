@@ -13,7 +13,7 @@
 #include <memory>
 #include <sstream>
 #include <string>
-#include <SystemAbstractions/StringExtensions.hpp>
+#include <StringExtensions/StringExtensions.hpp>
 #include <vector>
 
 struct HexDumpNetworkConnectionDecorator::Impl {
@@ -121,7 +121,7 @@ bool HexDumpNetworkConnectionDecorator::Process(
             return;
         }
         impl->hexDumpDelegate(
-            SystemAbstractions::sprintf(
+            StringExtensions::sprintf(
                 "Received %zu bytes:",
                 message.size()
             )
@@ -154,7 +154,7 @@ uint16_t HexDumpNetworkConnectionDecorator::GetBoundPort() const {
 
 void HexDumpNetworkConnectionDecorator::SendMessage(const std::vector< uint8_t >& message) {
     impl_->hexDumpDelegate(
-        SystemAbstractions::sprintf(
+        StringExtensions::sprintf(
             "Sending %zu bytes:",
             message.size()
         )

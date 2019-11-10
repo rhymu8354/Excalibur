@@ -17,10 +17,10 @@
 #include <HttpNetworkTransport/HttpClientNetworkTransport.hpp>
 #include <stdlib.h>
 #include <stdio.h>
+#include <StringExtensions/StringExtensions.hpp>
 #include <SystemAbstractions/DiagnosticsStreamReporter.hpp>
 #include <SystemAbstractions/File.hpp>
 #include <SystemAbstractions/NetworkConnection.hpp>
-#include <SystemAbstractions/StringExtensions.hpp>
 #include <thread>
 #include <time.h>
 #include <TlsDecorator/TlsDecorator.hpp>
@@ -114,7 +114,7 @@ namespace {
             diagnosticMessageDelegate(
                 "AwsPlay",
                 SystemAbstractions::DiagnosticsSender::Levels::ERROR,
-                SystemAbstractions::sprintf(
+                StringExtensions::sprintf(
                     "unable to open root CA certificates file '%s'",
                     caCertsFile.GetPath().c_str()
                 )

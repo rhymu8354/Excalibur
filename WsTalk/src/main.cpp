@@ -22,10 +22,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <StringExtensions/StringExtensions.hpp>
 #include <SystemAbstractions/DiagnosticsStreamReporter.hpp>
 #include <SystemAbstractions/File.hpp>
 #include <SystemAbstractions/NetworkConnection.hpp>
-#include <SystemAbstractions/StringExtensions.hpp>
 #include <thread>
 #include <TlsDecorator/TlsDecorator.hpp>
 #include <Uri/Uri.hpp>
@@ -145,7 +145,7 @@ namespace {
                         diagnosticMessageDelegate(
                             "WsTalk",
                             SystemAbstractions::DiagnosticsSender::Levels::ERROR,
-                            SystemAbstractions::sprintf(
+                            StringExtensions::sprintf(
                                 "unable to open certificate file '%s'",
                                 certFile.GetPath().c_str()
                             )
@@ -157,7 +157,7 @@ namespace {
                         diagnosticMessageDelegate(
                             "WsTalk",
                             SystemAbstractions::DiagnosticsSender::Levels::ERROR,
-                            SystemAbstractions::sprintf(
+                            StringExtensions::sprintf(
                                 "unable to read certificate file '%s'",
                                 certFile.GetPath().c_str()
                             )
@@ -238,7 +238,7 @@ namespace {
             diagnosticMessageDelegate(
                 "WsTalk",
                 SystemAbstractions::DiagnosticsSender::Levels::ERROR,
-                SystemAbstractions::sprintf(
+                StringExtensions::sprintf(
                     "unable to open root CA certificates file '%s'",
                     caCertsFile.GetPath().c_str()
                 )
@@ -418,7 +418,7 @@ namespace {
                                 diagnosticMessageDelegate(
                                     "WsTalk",
                                     SystemAbstractions::DiagnosticsSender::Levels::ERROR,
-                                    SystemAbstractions::sprintf(
+                                    StringExtensions::sprintf(
                                         "Got back response: %u %s",
                                         transaction->response.statusCode,
                                         transaction->response.reasonPhrase.c_str()
@@ -551,7 +551,7 @@ int main(int argc, char* argv[]) {
         diagnosticsPublisher(
             "WsTalk",
             3,
-            SystemAbstractions::sprintf(
+            StringExtensions::sprintf(
                 "WebSocket closed: %u %s",
                 code,
                 reason.c_str()

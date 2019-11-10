@@ -20,6 +20,7 @@ target_link_libraries(${This} PUBLIC
     Aws
     Http
     HttpNetworkTransport
+    StringExtensions
     SystemAbstractions
     TlsDecorator
 )

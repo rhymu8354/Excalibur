@@ -22,6 +22,7 @@ target_link_libraries(${This} PUBLIC
     Http
     HttpNetworkTransport
     TlsDecorator
+    StringExtensions
     SystemAbstractions
     Uri
     WebSockets

@@ -72,6 +72,11 @@
             branch="master"
             />
         <repository
+            path="StringExtensions"
+            url="git@github.com:rhymu8354/StringExtensions.git"
+            branch="master"
+            />
+        <repository
             path="SystemAbstractions"
             url="git@github.com:rhymu8354/SystemAbstractions.git"
             branch="master"
