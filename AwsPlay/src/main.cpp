@@ -110,7 +110,7 @@ namespace {
             SystemAbstractions::File::GetExeParentDirectory()
             + "/cert.pem"
         );
-        if (!caCertsFile.Open()) {
+        if (!caCertsFile.OpenReadOnly()) {
             diagnosticMessageDelegate(
                 "AwsPlay",
                 SystemAbstractions::DiagnosticsSender::Levels::ERROR,

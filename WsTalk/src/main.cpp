@@ -141,7 +141,7 @@ namespace {
 
                 case 1: { // certificate to accept
                     SystemAbstractions::File certFile(arg);
-                    if (!certFile.Open()) {
+                    if (!certFile.OpenReadOnly()) {
                         diagnosticMessageDelegate(
                             "WsTalk",
                             SystemAbstractions::DiagnosticsSender::Levels::ERROR,
@@ -234,7 +234,7 @@ namespace {
             SystemAbstractions::File::GetExeParentDirectory()
             + "/cert.pem"
         );
-        if (!caCertsFile.Open()) {
+        if (!caCertsFile.OpenReadOnly()) {
             diagnosticMessageDelegate(
                 "WsTalk",
                 SystemAbstractions::DiagnosticsSender::Levels::ERROR,
