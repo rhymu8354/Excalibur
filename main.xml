@@ -4,127 +4,127 @@
         <repository
             path="AsyncData"
             url="git@github.com:rhymu8354/AsyncData.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Aws"
             url="git@github.com:rhymu8354/Aws.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Base64"
             url="git@github.com:rhymu8354/Base64.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Hash"
             url="git@github.com:rhymu8354/Hash.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Http"
             url="git@github.com:rhymu8354/Http.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="HttpNetworkTransport"
             url="git@github.com:rhymu8354/HttpNetworkTransport.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Json"
             url="git@github.com:rhymu8354/Json.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="LibreSSL"
             url="git@github.com:rhymu8354/LibreSSL.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Lurker"
             url="git@github.com:rhymu8354/Lurker.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="MathBot2001"
             url="git@github.com:rhymu8354/MathBot2001.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="MessageHeaders"
             url="git@github.com:rhymu8354/MessageHeaders.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Raft"
             url="git@github.com:rhymu8354/Raft.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Rover"
             url="git@github.com:rhymu8354/Rover.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Serialization"
             url="git@github.com:rhymu8354/Serialization.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="StringExtensions"
             url="git@github.com:rhymu8354/StringExtensions.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="SystemAbstractions"
             url="git@github.com:rhymu8354/SystemAbstractions.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Timekeeping"
             url="git@github.com:rhymu8354/Timekeeping.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="TlsDecorator"
             url="git@github.com:rhymu8354/TlsDecorator.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Twitch"
             url="git@github.com:rhymu8354/Twitch.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="TwitchNetworkTransport"
             url="git@github.com:rhymu8354/TwitchNetworkTransport.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Uri"
             url="git@github.com:rhymu8354/Uri.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="Utf8"
             url="git@github.com:rhymu8354/Utf8.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="WebServer"
             url="git@github.com:rhymu8354/WebServer.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="WebSockets"
             url="git@github.com:rhymu8354/WebSockets.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="aws-sig-v4-test-suite"
             url="git@github.com:rhymu8354/aws-sig-v4-test-suite.git"
-            branch="master"
+            branch="main"
             />
         <repository
             path="googletest"
