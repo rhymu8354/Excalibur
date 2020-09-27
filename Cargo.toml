@@ -1,4 +1,5 @@
 [workspace]
 members = [
-    "Utf8"
+    "Uri",
+    "Utf8",
 ]
