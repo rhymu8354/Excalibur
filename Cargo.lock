@@ -100,6 +100,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "rhymuri"
+version = "1.0.1"
+dependencies = [
+ "named_tuple",
+ "once_cell",
+ "thiserror",
+]
+
+[[package]]
 name = "syn"
 version = "0.15.44"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -152,15 +161,6 @@ name = "unicode-xid"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7fe0bb3479651439c9112f72b6c505038574c9fbb575ed1bf3b797fa39dd564"
-
-[[package]]
-name = "uri"
-version = "0.1.0"
-dependencies = [
- "named_tuple",
- "once_cell",
- "thiserror",
-]
 
 [[package]]
 name = "utf8"
