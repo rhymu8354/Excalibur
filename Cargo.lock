@@ -30,14 +30,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3728d817d99e5ac407411fa471ff9800a778d88a24685968b36824eaf4bee400"
 
 [[package]]
-name = "message_headers"
-version = "0.1.0"
-dependencies = [
- "named_tuple",
- "thiserror",
-]
-
-[[package]]
 name = "named_tuple"
 version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -100,8 +92,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "rhymuri"
+name = "rhymessage"
 version = "1.0.1"
+dependencies = [
+ "named_tuple",
+ "thiserror",
+]
+
+[[package]]
+name = "rhymuri"
+version = "1.0.2"
 dependencies = [
  "named_tuple",
  "once_cell",
