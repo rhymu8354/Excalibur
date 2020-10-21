@@ -93,7 +93,7 @@ dependencies = [
 
 [[package]]
 name = "rhymessage"
-version = "1.1.0"
+version = "1.2.0"
 dependencies = [
  "named_tuple",
  "thiserror",
@@ -101,9 +101,9 @@ dependencies = [
 
 [[package]]
 name = "rhymessage"
-version = "1.1.0"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "28d56fe83ee9078b0966be400b6a048e665008e7089d48798b4ac7acad2412d3"
+checksum = "5bd806b29fa365ccba7e91e4e5071d73deb468e9752c495a32fe56771f58203c"
 dependencies = [
  "named_tuple",
  "thiserror",
@@ -133,7 +133,7 @@ dependencies = [
 name = "rhymuweb"
 version = "1.0.0"
 dependencies = [
- "rhymessage 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rhymessage 1.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rhymuri 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
 ]
