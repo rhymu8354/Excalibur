@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "Http",
+    "HttpClient",
     "MessageHeaders",
     "Uri",
     "Utf8",

@@ -27,6 +27,11 @@
             branch="main"
             />
         <repository
+            path="HttpClient"
+            url="git@github.com:rhymu8354/HttpClient.git"
+            branch="main"
+            />
+        <repository
             path="HttpNetworkTransport"
             url="git@github.com:rhymu8354/HttpNetworkTransport.git"
             branch="main"
