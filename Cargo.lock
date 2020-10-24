@@ -675,22 +675,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "rhymuri"
-version = "1.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7905d9a919981efe0ea9e3f4fafb2f5a370e38ba8a1b331d01b4d439632172a7"
-dependencies = [
- "named_tuple",
- "once_cell",
- "thiserror",
-]
-
-[[package]]
 name = "rhymuweb"
 version = "1.0.0"
 dependencies = [
  "rhymessage",
- "rhymuri 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rhymuri",
  "thiserror",
 ]
 
@@ -703,7 +692,7 @@ dependencies = [
  "async-tls",
  "futures",
  "rhymessage",
- "rhymuri 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rhymuri",
  "rhymuweb",
  "structopt",
  "thiserror",
