@@ -62,6 +62,11 @@
             branch="main"
             />
         <repository
+            path="Pantry"
+            url="git@github.com:rhymu8354/Pantry.git"
+            branch="main"
+            />
+        <repository
             path="Raft"
             url="git@github.com:rhymu8354/Raft.git"
             branch="main"

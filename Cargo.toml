@@ -3,6 +3,7 @@ members = [
     "Http",
     "HttpClient",
     "MessageHeaders",
+    "Pantry",
     "Uri",
     "Utf8",
 ]
