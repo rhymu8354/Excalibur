@@ -299,6 +299,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "encoding_rs"
+version = "0.8.24"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a51b8cf747471cb9499b6d59e59b0444f4c90eba8968c4e44874e92b5b64ace2"
+dependencies = [
+ "cfg-if 0.1.10",
+]
+
+[[package]]
 name = "event-listener"
 version = "2.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -772,6 +781,8 @@ dependencies = [
 name = "rhymuweb"
 version = "1.0.0"
 dependencies = [
+ "encoding_rs",
+ "flate2",
  "rhymessage 1.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rhymuri 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
@@ -785,7 +796,6 @@ dependencies = [
  "async-std",
  "async-tls",
  "async-trait",
- "flate2",
  "futures",
  "pantry 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rhymuri 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
