@@ -2,6 +2,7 @@
 members = [
     "Http",
     "HttpClient",
+    "HttpServer",
     "MessageHeaders",
     "Pantry",
     "Uri",

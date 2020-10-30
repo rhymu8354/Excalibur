@@ -805,6 +805,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "rhymuweb-server"
+version = "1.0.0"
+dependencies = [
+ "async-ctrlc",
+ "async-std",
+ "futures",
+ "rhymuweb",
+ "thiserror",
+]
+
+[[package]]
 name = "ring"
 version = "0.16.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"

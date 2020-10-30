@@ -37,6 +37,11 @@
             branch="main"
             />
         <repository
+            path="HttpServer"
+            url="git@github.com:rhymu8354/HttpServer.git"
+            branch="main"
+            />
+        <repository
             path="Json"
             url="git@github.com:rhymu8354/Json.git"
             branch="main"
