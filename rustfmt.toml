@@ -1,0 +1,33 @@
+# A lot of the styles we want can only be configured
+# using unstable features.
+#
+# If you have trouble running rustfmt, try "cargo +nightly fmt".
+unstable_features = true
+
+edition = "2018"
+fn_args_layout = "Vertical"
+format_code_in_doc_comments = true
+imports_layout = "Vertical"
+match_block_trailing_comma = true
+max_width = 80
+merge_imports = true
+normalize_comments = true
+normalize_doc_attributes = true
+overflow_delimited_expr = true
+reorder_impl_items = true
+struct_lit_single_line = false
+use_field_init_shorthand = true
+use_small_heuristics = "Off"
+use_try_shorthand = true
+wrap_comments = true
+
+# This one isn't released yet.
+#fn_call_width = 40
+
+# These are already set to the defaults, but they are things
+# we really want to make sure are set, just in case defaults change.
+reorder_imports = true
+reorder_modules = true
+space_after_colon = true
+space_before_colon = false
+tab_spaces = 4
