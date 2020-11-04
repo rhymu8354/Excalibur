@@ -7,4 +7,5 @@ members = [
     "Pantry",
     "Uri",
     "Utf8",
+    "WebSockets",
 ]
