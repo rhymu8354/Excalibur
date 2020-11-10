@@ -614,18 +614,18 @@ checksum = "260e51e7efe62b592207e9e13a68e43692a7a279171d6ba57abd208bf23645ad"
 [[package]]
 name = "pantry"
 version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b0fb3b7abdb57c0451ebcb415f8617c9b0a67e7b89e2a2a6faaa3a185ed07371"
 dependencies = [
- "async-std",
  "async-trait",
  "futures",
 ]
 
 [[package]]
 name = "pantry"
-version = "1.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b0fb3b7abdb57c0451ebcb415f8617c9b0a67e7b89e2a2a6faaa3a185ed07371"
+version = "1.0.1"
 dependencies = [
+ "async-std",
  "async-trait",
  "futures",
 ]
@@ -812,14 +812,6 @@ dependencies = [
 [[package]]
 name = "rhymessage"
 version = "1.3.0"
-dependencies = [
- "named_tuple",
- "thiserror",
-]
-
-[[package]]
-name = "rhymessage"
-version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d7b181697d87866ef3a193b24907242ad0cbb8c6fd0a9fa130302dcf320d517b"
 dependencies = [
@@ -828,11 +820,10 @@ dependencies = [
 ]
 
 [[package]]
-name = "rhymuri"
-version = "1.1.0"
+name = "rhymessage"
+version = "1.3.1"
 dependencies = [
  "named_tuple",
- "once_cell",
  "thiserror",
 ]
 
@@ -848,13 +839,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "rhymuri"
+version = "1.1.1"
+dependencies = [
+ "named_tuple",
+ "once_cell",
+ "thiserror",
+]
+
+[[package]]
 name = "rhymuweb"
 version = "1.0.0"
 dependencies = [
  "encoding_rs",
  "flate2",
- "rhymessage 1.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "rhymuri 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rhymessage 1.3.0",
+ "rhymuri 1.1.0",
+ "thiserror",
+]
+
+[[package]]
+name = "rhymuweb"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b9debd7f78d33566f989440b44e5e2c560a35a5a61417801c4a6aa48b07ff27a"
+dependencies = [
+ "encoding_rs",
+ "flate2",
+ "rhymessage 1.3.0",
+ "rhymuri 1.1.0",
  "thiserror",
 ]
 
@@ -867,9 +880,10 @@ dependencies = [
  "async-tls",
  "async-trait",
  "futures",
- "pantry 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "rhymuri 1.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "rhymuweb",
+ "pantry 1.0.0",
+ "rhymessage 1.3.0",
+ "rhymuri 1.1.0",
+ "rhymuweb 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "structopt",
  "thiserror",
 ]
@@ -881,7 +895,7 @@ dependencies = [
  "async-ctrlc",
  "async-std",
  "futures",
- "rhymuweb",
+ "rhymuweb 1.0.0",
  "thiserror",
 ]
 
@@ -1193,7 +1207,7 @@ dependencies = [
  "futures",
  "futures-timer",
  "rand",
- "rhymuweb",
+ "rhymuweb 1.0.0",
  "sha1",
  "thiserror",
 ]
