@@ -895,7 +895,7 @@ dependencies = [
  "async-ctrlc",
  "async-std",
  "futures",
- "rhymuweb 1.0.0",
+ "rhymuweb 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
 ]
 
@@ -1207,7 +1207,9 @@ dependencies = [
  "futures",
  "futures-timer",
  "rand",
- "rhymuweb 1.0.0",
+ "rhymuri 1.1.0",
+ "rhymuweb 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rhymuweb-client",
  "sha1",
  "thiserror",
 ]
