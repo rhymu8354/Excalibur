@@ -1211,6 +1211,7 @@ dependencies = [
  "rhymuweb 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rhymuweb-client",
  "sha1",
+ "structopt",
  "thiserror",
 ]
 
