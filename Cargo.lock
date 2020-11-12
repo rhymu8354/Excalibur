@@ -1202,6 +1202,7 @@ dependencies = [
 name = "websockets"
 version = "1.0.0"
 dependencies = [
+ "async-ctrlc",
  "async-mutex",
  "base64 0.13.0",
  "futures",
@@ -1210,6 +1211,7 @@ dependencies = [
  "rhymuri 1.1.0",
  "rhymuweb 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "rhymuweb-client",
+ "rhymuweb-server",
  "sha1",
  "structopt",
  "thiserror",
