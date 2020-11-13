@@ -1224,8 +1224,10 @@ dependencies = [
 name = "websockets"
 version = "1.0.0"
 dependencies = [
+ "anyhow",
  "async-ctrlc",
  "async-mutex",
+ "async-std",
  "base64 0.13.0",
  "futures",
  "futures-timer",
