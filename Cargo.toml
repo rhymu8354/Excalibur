@@ -5,6 +5,8 @@ members = [
     "HttpServer",
     "MessageHeaders",
     "Pantry",
+    "Raft",
+    "Serialization",
     "Uri",
     "Utf8",
     "WebSockets",
