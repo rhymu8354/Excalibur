@@ -781,7 +781,9 @@ dependencies = [
 name = "raft"
 version = "1.0.0"
 dependencies = [
+ "async-mutex",
  "futures",
+ "futures-timer",
  "maplit",
  "rand",
  "serde",
