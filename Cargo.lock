@@ -641,7 +641,7 @@ dependencies = [
 
 [[package]]
 name = "pantry"
-version = "1.0.1"
+version = "1.0.2"
 dependencies = [
  "async-std",
  "async-trait",
@@ -781,7 +781,6 @@ dependencies = [
 name = "raft"
 version = "1.0.0"
 dependencies = [
- "async-mutex",
  "futures",
  "futures-timer",
  "maplit",
