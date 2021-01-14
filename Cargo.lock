@@ -828,7 +828,6 @@ dependencies = [
  "serde_json",
  "serialization",
  "simple_logger",
- "thiserror",
 ]
 
 [[package]]
