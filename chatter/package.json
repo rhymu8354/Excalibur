@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "htp:///chatter",
   "dependencies": {
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
